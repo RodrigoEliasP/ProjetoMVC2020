@@ -1,9 +1,11 @@
 ﻿using System;
 using MySql.Data.MySqlClient;
+using MySql.Data.Common;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Linq;
 using System.Web;
+using System.Data;
 
 namespace ProjetoMVCB38.DAL
 {
@@ -41,6 +43,17 @@ namespace ProjetoMVCB38.DAL
             finally
             {
                 conexao.Close();
+            }
+        }
+        public DataTable executarConsulta(string sql)
+        {
+            try
+            {
+                conectar();
+                DataTable dt = new DataTable();
+                MySqlDataAdapter dados = new MySqlDataAdapter(sql, conexao);
+                dados.Fill(dt);
+                return dt;
             }
         }
     }
