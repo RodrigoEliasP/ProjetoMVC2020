@@ -13,9 +13,11 @@ namespace ProjetoMVCB38.DAL
     {
         private string string_conexao = 
         $"Persist Security info={ConfigurationManager.AppSettings["persistenciaBD"]};" +
-        $" server={ConfigurationManager.AppSettings["servidorBD"]}; database={ConfigurationManager.AppSettings["nomeBD"]};" +
-        $" user={ConfigurationManager.AppSettings["usuarioBD"]};" +
+        $"server={ConfigurationManager.AppSettings["servidorBD"]}; " +
+        $"database={ConfigurationManager.AppSettings["nomeBD"]};" +
+        $"user={ConfigurationManager.AppSettings["usuarioBD"]};" +
         $"pwd={ConfigurationManager.AppSettings["senhaBD"]};";
+
         private MySqlConnection conexao;
 
         public void conectar()
@@ -24,11 +26,13 @@ namespace ProjetoMVCB38.DAL
             {
                 conexao = new MySqlConnection(string_conexao);
                 conexao.Open();
+
             }catch(MySqlException e)
             {
                 throw new Exception($"erro ao conectar no banco de dados {e.Message}");
             }
         }
+
         public void executarComando(string sql)
         {
             try
@@ -52,12 +56,16 @@ namespace ProjetoMVCB38.DAL
                 conectar();
                 DataTable dt = new DataTable();
                 MySqlDataAdapter dados = new MySqlDataAdapter(sql, conexao);
+
                 dados.Fill(dt);
+
                 return dt;
             }
             catch (MySqlException e)
             {
+
                 throw new Exception($"erro ao executar consulta {e.Message}");
+
             }
             finally
             {

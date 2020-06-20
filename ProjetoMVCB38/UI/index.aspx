@@ -5,26 +5,30 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <title>Checar</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="CSS/styleIndex.css"/>
+    
 </head>
 <body>
-    <form id="form1" runat="server">
+    <form class="box" id="form1" runat="server">
+         
         <div class="container">
                 <div class="form-group" >
-                    <asp:Label for="CPF" runat="server">CPF</asp:Label>
-                    <input name="cpf" type="number" runat="server" class="form-control" />
+                    <asp:Label ID="lblCpf" runat="server" Text="CPF:"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="txtCpfB38" type="number" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group" >
-                    <asp:Label for="Nome completo" runat="server" >Nome completo</asp:Label>
-                    <input name="txtNomeB38" type="text" runat="server" class="form-control"/>
+                    <asp:Label ID="lblNome" runat="server" Text="Nome Completo"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="txtNomeB38" type="text" runat="server"></asp:TextBox>
                 </div>
                 <div class="form-group" >
-                    <asp:Label for="Nome da mãe" runat="server">Nome da mãe</asp:Label>
-                    <input name="txtNomeMaeB38" type="text" runat="server" class="form-control"/>
+                    <asp:Label ID="lblNomeMae" runat="server" Text="Nome da mãe"></asp:Label>
+                    <asp:TextBox CssClass="form-control" ID="txtNomeMaeB38" type="text" runat="server"></asp:TextBox>
                 </div>
-                <div style="width:100%; display:inline-flex; justify-content:center;" >
-                    <asp:Button CssClass="btn btn-success" Text="ENVIAR" runat="server" />
+                <div class="send">
+                    <asp:Button ID="btnChecarBeneficio" CssClass="btn btn-success" OnClick="btnChecarBeneficio_Click" Text="ENVIAR" runat="server"/>
+                    <asp:Label ID="lblResposta" runat="server" Text="Delicinha"></asp:Label>
                 </div>
         </div>
     </form>

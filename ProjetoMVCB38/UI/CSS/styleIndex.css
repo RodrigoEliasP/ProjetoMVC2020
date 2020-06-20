@@ -1,0 +1,19 @@
+﻿.box{
+    height: 100vh;
+    padding-top: 7%;
+    background-color:#dbdbdb;
+}
+
+.send {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.send span {
+    margin-top: 90px;
+    font-size: 22px;
+    font-family: sans-serif;
+}

@@ -69,6 +69,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="UI\CSS\styleIndex.css" />
     <Content Include="UI\index.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
