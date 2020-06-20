@@ -55,6 +55,14 @@ namespace ProjetoMVCB38.DAL
                 dados.Fill(dt);
                 return dt;
             }
+            catch (MySqlException e)
+            {
+                throw new Exception($"erro ao executar consulta {e.Message}");
+            }
+            finally
+            {
+                conexao.Close();
+            }
         }
     }
 }
